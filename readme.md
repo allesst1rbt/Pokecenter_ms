@@ -31,10 +31,22 @@ docker exec pokecenter_ms_users_1 bash
 npx prisma migrate dev 
 ````
 ## Realizando os testes:
-Entre no container :
+Endpoints :
 ```
-docker exec -it TesteApi_app_1 bash
+http://localhost:8080/transacao tipo POST
+{
+    "valor":1000,
+    "tipo":"credito" ou "debito"
+}
+
+http://localhost:8080/saldo?id_do_cliente=<id_do_cliente> tipo GET
+
+http://localhost:8080/cliente tipo POST
+{
+    "nome": "Carlos",
+    "telefone": "(61) 98127-2202" -> precisa ser um numero de telefone valido,
+    "saldo": 1000 ->não obrigatorio
+}
+
+http://localhost:8080/cliente?id_do_cliente=<id_do_cliente> tipo GET
 ```
-Execute os testes : 
-```
-cd back && php artisan test
