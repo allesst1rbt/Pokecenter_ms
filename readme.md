@@ -28,7 +28,7 @@ Adentre o docker e rode as migrations
 ````
 docker exec pokecenter_ms_users_1 bash 
 
-prisma migrate dev 
+npx prisma migrate dev 
 ````
 ## Realizando os testes:
 Entre no container :
