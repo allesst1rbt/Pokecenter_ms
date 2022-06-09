@@ -1,0 +1,57 @@
+version: '3'
+services:
+  
+   database:
+    image: mysql:5.7
+    command: mysqld --sql_mode=""
+    volumes:
+      - ./Database:/var/lib/mysql
+    environment:
+      - "MYSQL_ROOT_PASSWORD=nodedatabase"
+      - "MYSQL_DATABASE=nodedatabase"
+      - "MYSQL_USER=nodedatabase"
+    ports:
+      - "3399:3306"
+    healthcheck:
+      test: '/usr/bin/mysql --user=root --password=nodedatabase --execute "SHOW DATABASES;"'
+      interval: 2s
+      timeout: 20s
+      retries: 10
+
+   financial:
+    build:
+      dockerfile: Dockerfile
+      context: ./financial
+    restart: always
+    depends_on:
+      - database
+    links:
+      - database
+    volumes:
+      - .:/app
+      - /app/financial/node_modules
+   users:
+    build:
+      dockerfile: Dockerfile
+      context: ./users
+    restart: always
+    depends_on:
+      - database
+    links:
+      - database
+    volumes:
+      - .:/app
+      - /app/users/node_modules
+
+   nginx:
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    depends_on:
+      - database
+      - users
+      - financial
+    links:
+      - database
+    ports:
+      - 8080:80

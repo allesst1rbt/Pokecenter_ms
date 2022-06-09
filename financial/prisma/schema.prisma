@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model clientes {
+  id       Int    @id @default(autoincrement())
+  nome     String @db.VarChar(150)
+  telefone String @unique @db.VarChar(15)
+  conta    conta?
+}
+
+model conta {
+  id         Int      @id @default(autoincrement())
+  cliente_id Int      @unique
+  saldo      Decimal  @db.Decimal(10, 2)
+  clientes   clientes @relation(fields: [cliente_id], references: [id], onUpdate: Restrict, map: "conta_ibfk_1")
+}
