@@ -1,5 +1,5 @@
 # Pokecenter_ms
-Esses projeto consiste em uma api baseada em microserviços ultilizando Express+prisma+typescript+docker(o que eu mais gosto)
+Esses projeto consiste em uma api baseada em microserviços ultilizando Express+prisma+typescript+docker
 ## observaçôes:
 ### 1-Tenha o docker instalado, se não tiver e caso queira, siga os passos abaixo
 # Ultilizando com o docker:
