@@ -18,11 +18,12 @@ git clone https://github.com/allesst1rbt/Pokecenter_ms.git
 ````
 Adentre a pasta da aplicação 
 ````
-cd $_
+cd Pokecenter_ms
 ````
 Suba o docker 
 ````
-docker-compose up -d 
+docker-compose up --scale users=3 --scale financial=3 --build -d
+ 
 ````
 Adentre o docker e rode as migrations 
 ````
