@@ -33,7 +33,7 @@ npx prisma migrate dev
 ## Realizando os testes:
 Endpoints :
 ```
-http://localhost:8080/transacao tipo POST
+http://localhost:8080/transacao?id_do_cliente=<id_do_cliente> tipo POST
 {
     "valor":1000,
     "tipo":"credito" ou "debito"
