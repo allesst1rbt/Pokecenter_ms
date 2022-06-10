@@ -23,7 +23,6 @@ cd Pokecenter_ms
 Suba o docker 
 ````
 docker-compose up --scale users=3 --scale financial=3 --build -d
- 
 ````
 Adentre o docker e rode as migrations 
 ````
