@@ -18,6 +18,5 @@ RUN npx prisma generate
 
 RUN npx tsc
 
-RUN npx prisma migrate dev
 
 CMD ["npm", "run", "start"]
