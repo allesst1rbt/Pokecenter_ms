@@ -48,5 +48,5 @@ http://localhost:8080/cliente tipo POST
     "saldo": 1000 ->não obrigatorio
 }
 
-http://localhost:8080/cliente?id_do_cliente=<id_do_cliente> tipo GET
+http://localhost:8080/cliente/<id_do_cliente> tipo GET
 ```
