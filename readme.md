@@ -7,7 +7,7 @@ Esses projeto consiste em uma api baseada em microserviços ultilizando Express+
 ### Windows:
 #### 1-Primeiro instale o wsl na sua maquina https://docs.microsoft.com/pt-br/windows/wsl/install-win10
 #### 2-Segundo  instale o docker na sua maquina https://docs.docker.com/engine/install/
-### Unbutu:
+### Ubuntu:
 #### 1-https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-pt
 ### Manjaro:
 #### 1-https://linuxconfig.org/manjaro-linux-docker-installation
