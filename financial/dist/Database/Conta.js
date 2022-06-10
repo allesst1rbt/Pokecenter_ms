@@ -46,6 +46,13 @@ const Conta = {
                         saldo: newSaldo
                     }
                 });
+                yield prisma.transacoes.create({
+                    data: {
+                        cliente_id: id,
+                        valor: payload.valor,
+                        descricao: "debito"
+                    }
+                });
                 return "Transação realizada com sucesso";
             }
             if (payload.tipo == 'credito') {
@@ -56,6 +63,13 @@ const Conta = {
                     },
                     data: {
                         saldo: newSaldo
+                    }
+                });
+                yield prisma.transacoes.create({
+                    data: {
+                        cliente_id: id,
+                        valor: payload.valor,
+                        descricao: "credito"
                     }
                 });
                 return "Transação realizada com sucesso";
