@@ -27,7 +27,7 @@ docker-compose up --scale users=3 --scale financial=3 --build -d
 ````
 Adentre o docker e rode as migrations 
 ````
-docker exec pokecenter_ms_users_1 bash 
+docker exec -it pokecenter_ms_users_1 bash 
 
 npx prisma migrate dev 
 ````
