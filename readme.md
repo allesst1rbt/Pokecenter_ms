@@ -23,11 +23,10 @@ cd Pokecenter_ms
 Suba o docker 
 ````
 docker-compose up --scale users=3 --scale financial=3 --build -d
- 
 ````
 Adentre o docker e rode as migrations 
 ````
-docker exec pokecenter_ms_users_1 bash 
+docker exec -it pokecenter_ms_users_1 bash 
 
 npx prisma migrate dev 
 ````
@@ -49,5 +48,5 @@ http://localhost:8080/cliente tipo POST
     "saldo": 1000 ->não obrigatorio
 }
 
-http://localhost:8080/cliente?id_do_cliente=<id_do_cliente> tipo GET
+http://localhost:8080/cliente/<id_do_cliente> tipo GET
 ```
