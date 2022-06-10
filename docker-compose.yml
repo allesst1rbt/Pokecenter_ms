@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
   
    database:
@@ -24,7 +24,8 @@ services:
       context: ./financial
     restart: always
     depends_on:
-      - database
+      database:
+        condition: service_healthy
     links:
       - database
     volumes:
@@ -36,7 +37,8 @@ services:
       context: ./users
     restart: always
     depends_on:
-      - database
+      database:
+        condition: service_healthy
     links:
       - database
     volumes:
