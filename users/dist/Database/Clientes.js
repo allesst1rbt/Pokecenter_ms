@@ -17,6 +17,7 @@ const validar_telefone_1 = __importDefault(require("validar-telefone"));
 const prisma = new client_1.PrismaClient();
 const Clientes = {
     createCliente: (req) => __awaiter(void 0, void 0, void 0, function* () {
+        var _a;
         if (!(0, validar_telefone_1.default)(req.telefone)) {
             throw new Error("Telefone inválido");
         }
@@ -26,7 +27,7 @@ const Clientes = {
                 telefone: req.telefone,
                 conta: {
                     create: {
-                        saldo: req.saldo
+                        saldo: (_a = req.saldo) !== null && _a !== void 0 ? _a : 0
                     }
                 }
             },
@@ -37,7 +38,7 @@ const Clientes = {
         return cliente;
     }),
     findCliente: (id) => __awaiter(void 0, void 0, void 0, function* () {
-        var _a;
+        var _b;
         const cliente = yield prisma.clientes.findUnique({
             where: {
                 id: id
@@ -53,7 +54,7 @@ const Clientes = {
             id: cliente === null || cliente === void 0 ? void 0 : cliente.id,
             nome: cliente === null || cliente === void 0 ? void 0 : cliente.nome,
             telefone: cliente === null || cliente === void 0 ? void 0 : cliente.telefone,
-            saldo: (_a = cliente === null || cliente === void 0 ? void 0 : cliente.conta) === null || _a === void 0 ? void 0 : _a.saldo
+            saldo: (_b = cliente === null || cliente === void 0 ? void 0 : cliente.conta) === null || _b === void 0 ? void 0 : _b.saldo
         };
         return clienteReturn;
     })
